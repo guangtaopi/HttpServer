@@ -1,0 +1,13 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET  /                              @controllers.SampleApplication.index
+
+GET /user/:id                       @controllers.SampleApplication.get(id:Long)
+
+
+# Map static resources from the /public folder to the /assets URL path
+# 文件下载
+GET     /assets/*file               controllers.Assets.at(path="/public", file)

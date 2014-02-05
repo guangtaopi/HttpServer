@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="models.com.silu.dao.IUserDao">
+
+    <resultMap id="result" type="models.com.silu.bean.User">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="password" column="password"/>
+        <result property="passwordkey" column="passwordkey"/>
+    </resultMap>
+
+    <select id="getUser" parameterType="long" resultType="models.com.silu.bean.User">
+        SELECT id,name,password,passwordkey
+        FROM t_user
+        where id = #{id}
+    </select>
+
+    <insert id="saveUser" parameterType="models.com.silu.bean.User">
+        INSERT t_user user (id,name,password,passwordkey)
+        VALUE (#{id},#{name},#{password},#{passwordkey})
+    </insert>
+
+    <update id="updateUser" parameterType="models.com.silu.bean.User">
+        UPDATE t_user
+        SET
+        name = #{name},
+        password = #{password},
+        passwordkey = #{passwordkey}
+    </update>
+
+    <delete id="deleteUser" parameterType="int">
+        DELETE FROM t_user
+        WHERE id = #{id}
+    </delete>
+</mapper>

@@ -1,0 +1,14 @@
+name := "y"
+
+version := "1.0-SNAPSHOT"
+
+libraryDependencies ++= Seq(
+  javaJdbc,
+  javaEbean,
+  cache,
+  "org.springframework" % "spring-expression" % "3.2.3.RELEASE",
+  "org.mybatis" % "mybatis-spring" % "1.2.2",
+  "org.mybatis" % "mybatis" % "3.2.4"
+)
+
+play.Project.playJavaSettings
